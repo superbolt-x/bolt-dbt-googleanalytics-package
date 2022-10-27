@@ -1,0 +1,39 @@
+version: 2
+
+sources:
+  - name: googleanalytics_raw
+    schema: googleanalytics_raw
+    tables:
+      - name: traffic_sources
+      - name: traffic_sources_goals
+      - name: traffic_sources_goals_bis
+      - name: ecomm_salesperformance
+      - name: locations
+      - name: devices
+      - name: pages 
+
+models:
+  - name: _stg_googleanalytics_traffic_sources 
+    columns:
+      - name: unique_key
+        tests: 
+          - unique
+          - not_null
+  - name: _stg_googleanalytics_ecomm_salesperformance 
+    columns:
+      - name: unique_key
+        tests: 
+          - unique
+          - not_null
+  - name: googleanalytics_locations
+    columns:
+      - name: unique_key
+        tests: 
+          - unique
+          - not_null
+  - name: googleanalytics_pages
+    columns:
+      - name: unique_key
+        tests: 
+          - unique
+          - not_null
