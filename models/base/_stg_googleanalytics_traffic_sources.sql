@@ -18,7 +18,7 @@
 {%- set primary_keys = ['date','profile','source_medium','campaign','keyword','ad_content','landing_page_path'] -%}
 
 WITH raw_table AS 
-    (SELECT {{ primary_keys|join(', ') }},
+    (SELECT 
         {%- for field in fields %}
         {{ get_googleanalytics_clean_field(table_name, field) }}
         {%- if not loop.last %},{%- endif %}
